@@ -49,7 +49,8 @@ with st.expander('Input features'):
 # Encoding X
 encode = ['island', 'sex']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
-input_row = df_penguins[:1]
+X = df_penguins[:1]
+input_row = df_penguins[1:]
 
 # Encoding y
 target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
@@ -66,7 +67,7 @@ with st.expander('Data preparation'):
 
 # Model Training and Inference
 RFC = RandomForestClassifier()
-RFC.fit(df_penguins,y)
+RFC.fit(X,y)
 
 preds = RFC.predict(input_row)
 pred_proba = RFC.predict_proba(input_row)
