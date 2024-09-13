@@ -4,7 +4,7 @@ This is machine learning application to predict penguin species and learn how to
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://penguin-ML-app-SD.streamlit.app/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://penguin-ML-app.streamlit.app/)
 
 ## GitHub Codespaces
 
