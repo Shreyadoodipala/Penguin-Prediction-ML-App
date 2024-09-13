@@ -10,12 +10,12 @@ with st.expander('Data'):
   st.dataframe(df.head(10))
 
   st.write('**X**')
-  X = df.drop('species', axis=1)
-  st.dataframe(X.head(10))
+  X_raw = df.drop('species', axis=1)
+  st.dataframe(X_raw.head(10))
 
   st.write('**Y**')
-  y = df['species']
-  st.dataframe(y.head(10))
+  y_raw = df['species']
+  st.dataframe(y_raw.head(10))
 
 with st.expander('Data Visualization'):
   st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
@@ -37,17 +37,22 @@ with st.sidebar:
        'body_mass_g': body_mass_g,
        'sex': sex}
   input_df = pd.DataFrame(data, index=[0])
-  input_penguins = pd.concat([input_df, X], axis=0)
+  input_penguins = pd.concat([input_df, X_raw], axis=0)
 
-  # Encoding
-  encode = ['island', 'sex']
-  df_penguins = pd.get_dummies(input_penguins, prefix=encode)
-  input_row = df_penguins[:1]
+# Encoding X
+encode = ['island', 'sex']
+df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+input_row = df_penguins[:1]
+
+# Encoding y
+target_mapper = {'Adelie':0, 'Chinstrap':1, 'Gentoo':2}
+def target_encode(val):
+  return target_mapper[val]
 
 with st.expander('Input features'):
   st.write('**input penguin**')
   st.dataframe(input_df)
   st.write('**Combined data**')
   st.dataframe(input_penguins)
-  st.write('Encoded inputs')
+  st.write('**Encoded inputs**')
   input_row
