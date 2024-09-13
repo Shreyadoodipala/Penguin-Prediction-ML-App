@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from sklearn.ensemble import RandomForestClassifier
 
 st.title(':penguin: Penguin Prediction ML App')
 st.info('This is a ML app.')
@@ -62,3 +63,10 @@ with st.expander('Data preparation'):
   input_row
   st.write('**Encoded y**')
   st.dataframe(y)
+
+# Model Training and Inference
+RFC = RandomForestClassifier()
+RFC.fit(X_raw,y)
+
+preds = RFC.predict(input_row)
+pred_proba = RFC.predict_proba(input_row)
