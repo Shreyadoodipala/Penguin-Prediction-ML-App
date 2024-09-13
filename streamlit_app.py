@@ -81,4 +81,4 @@ df_prediction_proba
 # Display predicted species
 st.subheader('Predicted species')
 penguin_species = np.array(['Adelie', 'Chinstrap', 'Gentoo'])
-st.success(penguin_species[prediction][0])
+st.success(penguin_species[preds][0])
