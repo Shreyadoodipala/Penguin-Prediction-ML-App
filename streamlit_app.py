@@ -10,9 +10,9 @@ with st.expander('Data'):
   st.dataframe(df.head(10))
 
   st.write('**X**')
-  X = df.drop['species', axis=1]
+  X = df.drop('species', axis=1)
   st.dataframe(X.head(10))
 
   st.write('**Y**')
-  y = df.species
+  y = df['species']
   st.dataframe(y.head(10))
