@@ -72,4 +72,4 @@ RFC.fit(X,y)
 preds = RFC.predict(input_row)
 pred_proba = RFC.predict_proba(input_row)
 
-df_prediction_proba = pd.DataFrame(prediction_proba)
+df_prediction_proba = pd.DataFrame(pred_proba)
