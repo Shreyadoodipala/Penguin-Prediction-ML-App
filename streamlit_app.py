@@ -1,5 +1,4 @@
 import streamlit as st
 
 st.title(':penguin: Penguin Prediction ML App')
-
-st.write('Hello world!')
+st.info('This is a ML app.')
